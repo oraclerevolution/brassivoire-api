@@ -25,7 +25,7 @@ import { ApiTags } from '@nestjs/swagger';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @UseGuards(FullAdminAuthGuard)
+  // @UseGuards(FullAdminAuthGuard)
   @Post('register')
   async register(@Body() payload: CreateUserDto): Promise<User> {
     return await this.userService.register(payload);
