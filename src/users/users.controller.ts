@@ -17,11 +17,15 @@ import { UserActiveDto } from './dtos/active-user.dto';
 import { UserDeactiveDto } from './dtos/disable-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
+import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
+  @UseGuards(FullAdminAuthGuard)
   @Post('register')
   async register(@Body() payload: CreateUserDto): Promise<User> {
     return await this.userService.register(payload);
@@ -52,12 +56,14 @@ export class UsersController {
   }
 
   @UseGuards(FullAuthGuard)
+  @UseGuards(FullAdminAuthGuard)
   @Patch('active-user')
   async activeUser(@Body() payload: UserActiveDto): Promise<User> {
     return await this.userService.activeUser(payload);
   }
 
   @UseGuards(FullAuthGuard)
+  @UseGuards(FullAdminAuthGuard)
   @Patch('deactive-user')
   async deactiveUser(@Body() payload: UserDeactiveDto): Promise<User> {
     return await this.userService.deactiveUser(payload);
