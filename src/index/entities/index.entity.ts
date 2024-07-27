@@ -1,7 +1,10 @@
+import { User } from 'src/users/entities/users.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -19,6 +22,13 @@ export class Index {
 
   @Column({ name: 'period_id' })
   periodId: string;
+
+  @Column({ name: 'user_id' })
+  userId: string;
+
+  @ManyToOne(() => User, (user) => user.id)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

@@ -4,9 +4,9 @@ import {
   Post,
   Body,
   Patch,
-  Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { PeriodService } from './period.service';
 import { CreatePeriodDto } from './dto/create-period.dto';
@@ -33,17 +33,17 @@ export class PeriodController {
   }
 
   @Get()
-  findOne(@Param('id') id: string) {
+  findOne(@Query('id') id: string) {
     return this.periodService.findOne(id);
   }
 
   @Patch()
-  update(@Param('id') id: string, @Body() updatePeriodDto: UpdatePeriodDto) {
+  update(@Query('id') id: string, @Body() updatePeriodDto: UpdatePeriodDto) {
     return this.periodService.update(id, updatePeriodDto);
   }
 
   @Delete()
-  remove(@Param('id') id: string) {
+  remove(@Query('id') id: string) {
     return this.periodService.remove(id);
   }
 }
