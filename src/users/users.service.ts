@@ -12,7 +12,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { UserLoginDto } from './dtos/login-user.dto';
 import { UserAuth } from './dtos/user-auth.dto';
 import { UserForgotPasswordDto } from './dtos/forgot-password.dto';
-import { UserResetPasswordDto } from './dtos/reset-password.Dto';
+import { UserResetPasswordDto } from './dtos/reset-password.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UserActiveDto } from './dtos/active-user.dto';
 import { UserDeactiveDto } from './dtos/disable-user.dto';
