@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Role } from './entities/roles.entity';
-import { Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateRoleDto } from './dtos/update-role.dto';
 import { CreateRoleDto } from './dtos/create-role.dto';
@@ -25,5 +25,9 @@ export class RolesService {
 
   async update(id: string, payload: UpdateRoleDto): Promise<UpdateResult> {
     return await this.roleRepository.update(id, payload);
+  }
+
+  async delete(id: string): Promise<DeleteResult> {
+    return await this.roleRepository.delete({ id });
   }
 }
