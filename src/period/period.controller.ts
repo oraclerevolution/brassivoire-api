@@ -5,15 +5,12 @@ import {
   Body,
   Patch,
   Delete,
-  UseGuards,
   Query,
 } from '@nestjs/common';
 import { PeriodService } from './period.service';
 import { CreatePeriodDto } from './dto/create-period.dto';
 import { UpdatePeriodDto } from './dto/update-period.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
-import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
 
 @ApiTags('Period')
 // // @UseGuards(FullAuthGuard)

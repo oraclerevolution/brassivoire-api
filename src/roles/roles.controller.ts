@@ -1,20 +1,10 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Patch,
-  Post,
-  Query,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, Query } from '@nestjs/common';
 import { RolesService } from './roles.service';
 import { CreateRoleDto } from './dtos/create-role.dto';
 import { Role } from './entities/roles.entity';
 import { UpdateRoleDto } from './dtos/update-role.dto';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { ApiTags } from '@nestjs/swagger';
-import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
-import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
 
 @ApiTags('Roles')
 @Controller('roles')

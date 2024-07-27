@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Patch,
-  Post,
-  Query,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { User } from './entities/users.entity';
@@ -17,8 +9,6 @@ import { UserResetPasswordDto } from './dtos/reset-password.dto';
 import { UserActiveDto } from './dtos/active-user.dto';
 import { UserDeactiveDto } from './dtos/disable-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
-import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
-import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Users')
