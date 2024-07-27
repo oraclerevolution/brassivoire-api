@@ -8,6 +8,7 @@ import { RolesModule } from './roles/roles.module';
 import { TypeCompteurModule } from './type-compteur/type-compteur.module';
 import { PeriodModule } from './period/period.module';
 import { IndexModule } from './index/index.module';
+import { CompteursModule } from './compteurs/compteurs.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { IndexModule } from './index/index.module';
     TypeCompteurModule,
     PeriodModule,
     IndexModule,
+    CompteursModule,
   ],
   controllers: [AppController],
   providers: [AppService],
