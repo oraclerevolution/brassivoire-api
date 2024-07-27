@@ -24,7 +24,10 @@ import { CompteursModule } from './compteurs/compteurs.module';
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
       entities: ['dist/**/*.entity{.ts,.js}'],
-      ssl: process.env.NODE_ENV === 'production' ? true : false,
+      ssl:
+        process.env.NODE_ENV === 'production'
+          ? { rejectUnauthorized: false }
+          : false,
       synchronize: true,
     }),
     UsersModule,
