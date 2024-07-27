@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { TypeCompteurModule } from './type-compteur/type-compteur.module';
 import { PeriodModule } from './period/period.module';
+import { IndexModule } from './index/index.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { PeriodModule } from './period/period.module';
     RolesModule,
     TypeCompteurModule,
     PeriodModule,
+    IndexModule,
   ],
   controllers: [AppController],
   providers: [AppService],
