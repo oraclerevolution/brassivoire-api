@@ -23,9 +23,6 @@ export class Index {
   @Column({ name: 'period_id' })
   periodId: string;
 
-  @Column({ name: 'user_id' })
-  userId: string;
-
   @ManyToOne(() => User, (user) => user.id)
   @JoinColumn({ name: 'user_id' })
   user: User;

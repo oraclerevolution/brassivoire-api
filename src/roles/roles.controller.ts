@@ -31,15 +31,15 @@ export class RolesController {
     return this.rolesService.findOne(user_id);
   }
 
-  @UseGuards(FullAuthGuard)
-  @UseGuards(FullAdminAuthGuard)
+  // // @UseGuards(FullAuthGuard)
+  // // @UseGuards(FullAdminAuthGuard)
   @Post()
   async create(@Body() payload: CreateRoleDto): Promise<Role> {
     return this.rolesService.create(payload);
   }
 
-  @UseGuards(FullAuthGuard)
-  @UseGuards(FullAdminAuthGuard)
+  // @UseGuards(FullAuthGuard)
+  // @UseGuards(FullAdminAuthGuard)
   @Patch('update')
   async update(
     @Body() payload: UpdateRoleDto,
@@ -48,8 +48,8 @@ export class RolesController {
     return this.rolesService.update(role_id, payload);
   }
 
-  @UseGuards(FullAuthGuard)
-  @UseGuards(FullAdminAuthGuard)
+  // @UseGuards(FullAuthGuard)
+  // @UseGuards(FullAdminAuthGuard)
   @Post('delete')
   async delete(@Query('role_id') role_id: string): Promise<DeleteResult> {
     return this.rolesService.delete(role_id);

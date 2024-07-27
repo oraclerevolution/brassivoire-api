@@ -16,8 +16,8 @@ import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
 import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
 
 @ApiTags('Compteurs')
-@UseGuards(FullAuthGuard)
-@UseGuards(FullAdminAuthGuard)
+// @UseGuards(FullAuthGuard)
+// @UseGuards(FullAdminAuthGuard)
 @Controller('compteurs')
 export class CompteursController {
   constructor(private readonly compteursService: CompteursService) {}

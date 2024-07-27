@@ -16,8 +16,8 @@ import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
 import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
 
 @ApiTags('Index')
-@UseGuards(FullAuthGuard)
-@UseGuards(FullAdminAuthGuard)
+// @UseGuards(FullAuthGuard)
+// @UseGuards(FullAdminAuthGuard)
 @Controller('index')
 export class IndexController {
   constructor(private readonly indexService: IndexService) {}

@@ -16,8 +16,8 @@ import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
 import { FullAdminAuthGuard } from 'src/full-admin-auth-guard/full-admin-auth-guard.guard';
 
 @ApiTags('Period')
-@UseGuards(FullAuthGuard)
-@UseGuards(FullAdminAuthGuard)
+// // @UseGuards(FullAuthGuard)
+// // @UseGuards(FullAdminAuthGuard)
 @Controller('period')
 export class PeriodController {
   constructor(private readonly periodService: PeriodService) {}

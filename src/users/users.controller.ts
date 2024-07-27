@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Patch,
   Post,
   Query,
@@ -25,10 +26,15 @@ import { ApiTags } from '@nestjs/swagger';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  // @UseGuards(FullAdminAuthGuard)
+  // // @UseGuards(FullAdminAuthGuard)
   @Post('register')
   async register(@Body() payload: CreateUserDto): Promise<User> {
     return await this.userService.register(payload);
+  }
+
+  @Get('all-users')
+  async getAllUsers(): Promise<User[]> {
+    return await this.userService.getAllUsers();
   }
 
   @Post('login')
@@ -46,7 +52,7 @@ export class UsersController {
     return await this.userService.resetPassword(payload);
   }
 
-  @UseGuards(FullAuthGuard)
+  // @UseGuards(FullAuthGuard)
   @Patch('update-user')
   async updateUser(
     @Body() payload: UpdateUserDto,
@@ -55,15 +61,15 @@ export class UsersController {
     return await this.userService.updateUser(payload, id);
   }
 
-  @UseGuards(FullAuthGuard)
-  @UseGuards(FullAdminAuthGuard)
+  // @UseGuards(FullAuthGuard)
+  // @UseGuards(FullAdminAuthGuard)
   @Patch('active-user')
   async activeUser(@Body() payload: UserActiveDto): Promise<User> {
     return await this.userService.activeUser(payload);
   }
 
-  @UseGuards(FullAuthGuard)
-  @UseGuards(FullAdminAuthGuard)
+  // @UseGuards(FullAuthGuard)
+  // @UseGuards(FullAdminAuthGuard)
   @Patch('deactive-user')
   async deactiveUser(@Body() payload: UserDeactiveDto): Promise<User> {
     return await this.userService.deactiveUser(payload);

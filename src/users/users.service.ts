@@ -41,6 +41,10 @@ export class UsersService {
     }
   }
 
+  async getAllUsers(): Promise<User[]> {
+    return await this.repository.find();
+  }
+
   async login(credentials: UserLoginDto): Promise<UserAuth> {
     const { email, password } = credentials;
     //we verify if user exist
