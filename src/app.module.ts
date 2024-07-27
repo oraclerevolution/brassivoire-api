@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { TypeCompteurModule } from './type-compteur/type-compteur.module';
+import { PeriodModule } from './period/period.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { TypeCompteurModule } from './type-compteur/type-compteur.module';
     UsersModule,
     RolesModule,
     TypeCompteurModule,
+    PeriodModule,
   ],
   controllers: [AppController],
   providers: [AppService],
