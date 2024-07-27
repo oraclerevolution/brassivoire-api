@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
+import { TypeCompteurModule } from './type-compteur/type-compteur.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { RolesModule } from './roles/roles.module';
     }),
     UsersModule,
     RolesModule,
+    TypeCompteurModule,
   ],
   controllers: [AppController],
   providers: [AppService],

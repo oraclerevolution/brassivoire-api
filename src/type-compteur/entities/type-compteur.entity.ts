@@ -6,10 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity({
-  name: 'roles',
-})
-export class Role {
+@Entity({ name: 'type_compteur' })
+export class TypeCompteur {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

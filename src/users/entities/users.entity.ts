@@ -11,7 +11,7 @@ import { UserType } from '../enums/user-type.enum';
   name: 'users',
 })
 export class User {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column({ nullable: false })
