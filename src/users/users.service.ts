@@ -165,4 +165,12 @@ export class UsersService {
     await this.repository.update(payload.id, { isActive: false });
     return user;
   }
+
+  async getUserByEmail(email: string): Promise<User> {
+    return await this.repository
+      .createQueryBuilder('user')
+      .where('user.email = :email', { email })
+      .andWhere('user.isActive = :isActive', { isActive: true })
+      .getOne();
+  }
 }

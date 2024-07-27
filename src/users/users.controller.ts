@@ -1,4 +1,11 @@
-import { Body, Controller, Patch, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Patch,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { User } from './entities/users.entity';
@@ -9,6 +16,7 @@ import { UserResetPasswordDto } from './dtos/reset-password.Dto';
 import { UserActiveDto } from './dtos/active-user.dto';
 import { UserDeactiveDto } from './dtos/disable-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
+import { FullAuthGuard } from 'src/full-auth-guard/full-auth-guard.guard';
 
 @Controller('users')
 export class UsersController {
@@ -34,6 +42,7 @@ export class UsersController {
     return await this.userService.resetPassword(payload);
   }
 
+  @UseGuards(FullAuthGuard)
   @Patch('update-user')
   async updateUser(
     @Body() payload: UpdateUserDto,
@@ -42,11 +51,13 @@ export class UsersController {
     return await this.userService.updateUser(payload, id);
   }
 
+  @UseGuards(FullAuthGuard)
   @Patch('active-user')
   async activeUser(@Body() payload: UserActiveDto): Promise<User> {
     return await this.userService.activeUser(payload);
   }
 
+  @UseGuards(FullAuthGuard)
   @Patch('deactive-user')
   async deactiveUser(@Body() payload: UserDeactiveDto): Promise<User> {
     return await this.userService.deactiveUser(payload);
