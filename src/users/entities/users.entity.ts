@@ -32,6 +32,9 @@ export class User {
   @Column({ default: false })
   isVerified: boolean;
 
+  @Column()
+  role: string;
+
   @Column({ default: true })
   isFirstLogin: boolean;
 
